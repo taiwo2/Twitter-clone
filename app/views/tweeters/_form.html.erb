@@ -1,0 +1,22 @@
+<%= form_with(model: tweeter) do |form| %>
+  <% if tweeter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tweeter.errors.count, "error") %> prohibited this tweeter from being saved:</h2>
+
+      <ul>
+        <% tweeter.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :tweet %>
+    <%= form.text_area :tweet %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
