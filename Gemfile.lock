@@ -62,6 +62,8 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    autoprefixer-rails (10.2.4.0)
+      execjs
     bcrypt (3.1.16)
     better_errors (2.9.1)
       coderay (>= 1.0.0)
@@ -70,6 +72,10 @@ GEM
     bindex (0.8.1)
     bootsnap (1.7.1)
       msgpack (~> 1.0)
+    bootstrap (4.6.0)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 1.14.3, < 2)
+      sassc-rails (>= 2.0.0)
     builder (3.2.4)
     bulma-rails (0.9.1)
       sassc (~> 2.0)
@@ -97,6 +103,7 @@ GEM
       http_parser.rb (~> 0.6.0)
     erubi (1.10.0)
     eventmachine (1.2.7)
+    execjs (2.7.0)
     ffi (1.14.2)
     formatador (0.2.5)
     globalid (0.4.2)
@@ -149,6 +156,7 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
+    popper_js (1.16.0)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -261,6 +269,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors (~> 2.9, >= 2.9.1)
   bootsnap (>= 1.4.4)
+  bootstrap (~> 4.6)
   bulma-rails (~> 0.9.1)
   byebug
   capybara (>= 3.26)
