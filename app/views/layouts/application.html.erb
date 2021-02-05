@@ -28,22 +28,24 @@
       <%= link_to root_path, class: "navbar-item" do %>
         <h1 class="title is-5"> Twitter</h1>
       <% end %>
-      <div  class="navbar-burger burger" data-target='navbarExample'>
+      <div  class="navbar-burger burger" data-target="navbarExample">
           <span></span>
           <span></span>
           <span></span>
-        </div>
+      </div>
    </div>
 
    <div id="navbarExample" class='navbar-menu'>
-      <div class='navbar-end'>
-        <div class='field is-grouped'>
+      <div class="navbar-end">
+        <div class="field is-grouped">
           <p class="control">
-            <% link_to "New Tweet", new_tweeter_path, class: "button is-info is-inverted" %>
+            <%= link_to "New Tweet", new_tweeter_path, class: "button is-info is-inverted" %>
           </p>
+          <p class='control'> Signup</p>
         </div>
       </div>
     </div>
+    
   </nav>
     <%= yield %>
   </body>
