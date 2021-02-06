@@ -1,5 +1,6 @@
 class TweetersController < ApplicationController
   before_action :set_tweeter, only: %i[ show edit update destroy ]
+  before_action :authenticate_user! except: %i[ index show ]
 
   # GET /tweeters or /tweeters.json
   def index
