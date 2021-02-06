@@ -4,6 +4,7 @@ class TweetersController < ApplicationController
   # GET /tweeters or /tweeters.json
   def index
     @tweeters = Tweeter.all.order(created_at: :desc)
+    @tweeter = Tweeter.new
   end
 
   # GET /tweeters/1 or /tweeters/1.json
