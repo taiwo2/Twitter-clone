@@ -37,13 +37,28 @@
       </div>
    </div>
 
-   <div id="navbarExample" class='navbar-menu'>
+   <div id="navbarExample" class='#'>
       <div class="navbar-end">
-        <div class="field is-grouped">
-          <p class="control">
-            <%= link_to "New Tweet", new_tweeter_path, class: "button is-info is-inverted" %>
-          </p>
-          <p class='control'> Signup</p>
+        <div class='navbar-item'>  
+          <div class="field is-grouped">
+            <p class="control">
+              <%= link_to "New Tweet", new_tweeter_path, class: "button is-info is-inverted" %>
+            </p>
+            <% if user_signed_in? %>
+            <p class="control">
+            <%= link_to current_user.name, edit_user_registration_path, class: "button is-info" %>
+             </p>
+             <p><%= link_to "logout", destroy_user_session_path, method: :delete, class: "button is-info" %>
+             </p>
+             <% else %>
+             <p class='control'> 
+            <%= link_to "Sigin", new_user_session_path, class: "button is-info" %>
+            </p>
+            <p class='control'> 
+            <%= link_to "Signup", new_user_registration_path, class: "button is-info" %>
+            </p>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

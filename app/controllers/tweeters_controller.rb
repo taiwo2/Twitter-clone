@@ -1,6 +1,6 @@
 class TweetersController < ApplicationController
   before_action :set_tweeter, only: %i[ show edit update destroy ]
-  before_action :authenticate_user! except: %i[ index show ]
+  before_action :authenticate_user!, except: %i[ index show ]
 
   # GET /tweeters or /tweeters.json
   def index
@@ -14,7 +14,7 @@ class TweetersController < ApplicationController
 
   # GET /tweeters/new
   def new
-    @tweeter = Tweeter.new
+    @tweeter = current_user.tweeters.build
   end
 
   # GET /tweeters/1/edit
@@ -23,7 +23,7 @@ class TweetersController < ApplicationController
 
   # POST /tweeters or /tweeters.json
   def create
-    @tweeter = Tweeter.new(tweeter_params)
+    @tweeter = current_user.tweeters.build(tweeter_params)
 
     respond_to do |format|
       if @tweeter.save
@@ -59,13 +59,14 @@ class TweetersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tweeter
-      @tweeter = Tweeter.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def tweeter_params
-      params.require(:tweeter).permit(:tweet)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_tweeter
+    @tweeter = Tweeter.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def tweeter_params
+    params.require(:tweeter).permit(:tweet)
+  end
 end
